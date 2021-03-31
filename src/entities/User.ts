@@ -8,6 +8,7 @@ export default class User {
   public createdAt!: Date;
   public updatedAt!: Date;
 
+  
   constructor( id: Number | null, name: String, email: String, githubUsername: String, value: Number, password: String){
     this.id = id;
     this.name = name;
@@ -15,6 +16,10 @@ export default class User {
     this.githubUsername = githubUsername;
     this.value = value;
     this.password = password;
+  }
+
+  public static getKeys(){
+    return ["id", "name", "email", "githubUsername", "value", "password"];
   }
 
   public setCreatedAt(date: Date) {
