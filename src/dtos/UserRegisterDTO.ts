@@ -1,11 +1,11 @@
 export default class UserRegisterDTO {
-  protected name: String;
-  protected email: String;
-  protected githubUsername: String;
-  protected value: Number;
-  protected password: String;
+  protected name: string;
+  protected email: string;
+  protected githubUsername: string;
+  protected value: number;
+  protected password: string;
 
-  constructor(name: String, email: String, githubUsername: String, value: Number, password: String){
+  constructor(name: string, email: string, githubUsername: string, value: number, password: string){
     this.name = name;
     this.email = email;
     this.githubUsername = githubUsername;

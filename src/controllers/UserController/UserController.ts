@@ -13,8 +13,12 @@ class UserController {
     const {name, email, githubUsername, value, password} = request.body;
     const hashedPassword = generateHashedPassword(password);
     const userDto = new UserRegisterDTO(name, email, githubUsername, value, hashedPassword);
+
     const userResponse = await userService.save(userDto);
-    return response.send(userResponse);
+
+    if(!userResponse) return response.render('register', {message: {errors: {}}})
+
+    return response.render('login', {message: null});
   }
 }
 

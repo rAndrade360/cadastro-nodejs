@@ -1,15 +1,15 @@
 export default class User {
-  public id: Number | null;
-  public name: String;
-  public email: String;
-  public githubUsername: String;
-  public value: Number;
-  public password: String;
+  public id: number | null;
+  public name: string;
+  public email: string;
+  public githubUsername: string;
+  public value: number;
+  public password: string;
   public createdAt!: Date;
   public updatedAt!: Date;
 
   
-  constructor( id: Number | null, name: String, email: String, githubUsername: String, value: Number, password: String){
+  constructor( id: number | null, name: string, email: string, githubUsername: string, value: number, password: string){
     this.id = id;
     this.name = name;
     this.email = email;
@@ -20,6 +20,19 @@ export default class User {
 
   public static getKeys(){
     return ["id", "name", "email", "githubUsername", "value", "password"];
+  }
+
+  public toJSON(){
+    return {
+      id: this.id,
+      name: this.name,
+      email: this.email,
+      githubUsername: this.githubUsername,
+      value: this.value,
+      password: this.password,
+      createdAt: this.createdAt,
+      updatedAt: this.updatedAt
+    }
   }
 
   public setCreatedAt(date: Date) {

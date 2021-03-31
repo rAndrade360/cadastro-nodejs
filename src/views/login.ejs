@@ -7,7 +7,16 @@
   <title>Login</title>
 </head>
 <body>
-  <form action="/login" method="post">
+  <h1>Login</h1>
+  <% if(message) { %>
+    <p>
+      <label style="color:Red"><%= message %></label>
+    </p>
+  <%}%>
+  <form action="" method="post">
+    <input type="text" name="email" placeholder="user email">
+    <input type="password" name="password" placeholder="senha">
+    <button type="submit">Login</button>
   </form>
 </body>
 </html>

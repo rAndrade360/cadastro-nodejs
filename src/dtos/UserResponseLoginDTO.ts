@@ -1,11 +1,12 @@
 import User from '../entities/User';
 
-export default class UserResponseDTO {
-  protected id: number;
-  protected name: string;
-  protected email: string;
-  protected githubUsername: string;
-  protected value: number;
+export default class UserResponseLoginDTO {
+  public id: number;
+  public name: string;
+  public email: string;
+  public githubUsername: string;
+  public value: number;
+  public password: string;
 
   constructor(user: User){
     this.id = Number(user.id);
@@ -13,6 +14,7 @@ export default class UserResponseDTO {
     this.email = user.email;
     this.githubUsername = user.githubUsername;
     this.value = user.value;
+    this.password = user.password;
   }
 
   public getName() {

@@ -9,9 +9,27 @@ class UserRepository implements IUserRepository {
 
     user.id = users.maxId + 1;
 
-    users.insert({user});
+    const userInsert = JSON.parse(JSON.stringify(user));
+
+    console.log(userInsert)
+
+    users.insert(userInsert);
     
     return user;
+  }
+
+  async findByEmail(email: string){
+    const user = users.findOne({email});
+
+    const userResponse = new User(Number(user?.id), String(user?.name), String(user?.email), String(user?.githubUsername), Number(user?.value), String(user?.password));
+    return userResponse;
+  }
+
+  async findById(id: number){
+    const user = users.findOne({id});
+
+    const userResponse = new User(Number(user?.id), String(user?.name), String(user?.email), String(user?.githubUsername), Number(user?.value), String(user?.password));
+    return userResponse;
   }
 }
 
