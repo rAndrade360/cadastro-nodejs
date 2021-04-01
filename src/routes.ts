@@ -29,10 +29,6 @@ routes.post('/login', passport.authenticate('local', {
   failureRedirect: '/login?fail=true'
 }))
 
-
-
-
-
 routes.get('/home',  authenticationMiddleware, (request: Request, response: Response) => {
   return response.render('home');
 })
