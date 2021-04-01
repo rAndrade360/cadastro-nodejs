@@ -8,6 +8,13 @@
 </head>
 <body>
   <h1>Registre-se</h1>
+  <% if(message) { %>
+    <% message.errors.forEach( function(error){ %>
+    <p>
+      <label style="color:Red">O campo <%= message.field%> <%= error %></label>
+    </p>
+    <%})%>
+  <%}%>
   <form action="" method="post">
     <input type="text" name="name" placeholder="user name">
     <input type="text" name="email" placeholder="user email">
