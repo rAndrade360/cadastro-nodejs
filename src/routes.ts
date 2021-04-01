@@ -31,8 +31,17 @@ routes.post('/login', passport.authenticate('local', {
 
 
 
+
+
 routes.get('/home',  authenticationMiddleware, (request: Request, response: Response) => {
   return response.render('home');
+})
+
+routes.get('/logout', authenticationMiddleware, (request: Request, response: Response) => {
+  request.session.destroy(function (err) {
+    console.log(err)
+  })
+  return response.redirect('/login')
 })
 
 

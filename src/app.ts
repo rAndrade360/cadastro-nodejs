@@ -2,6 +2,8 @@ import express from 'express';
 import path from 'path';
 import session from 'express-session';
 import passport from 'passport';
+import cookieParser from 'cookie-parser';
+import helmet from 'helmet';
 import auth from './middlewares/auth';
 import routes from './routes';
 
@@ -15,13 +17,16 @@ class App {
   }
 
   middlewares(){
+    this.app.use(helmet());
     auth(passport);
     this.app.use(session({
-      secret: 'arroz',
+      secret: 'sd3$23fsdf3daSdFSDGW4s@fsd',
       resave: false,
       saveUninitialized: false,
       cookie: { maxAge: 30 * 60 * 1000 }//30min
     }));
+
+    this.app.use(cookieParser());
 
     this.app.use(express.urlencoded({extended: false}))
     this.app.set('view engine', 'ejs');
