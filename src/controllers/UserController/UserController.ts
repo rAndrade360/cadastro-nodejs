@@ -18,7 +18,6 @@ class UserController {
     try{
     await UserRegisterValidator().validate({name, email, githubUsername, value, password});
     }catch(error) {
-      console.log(error);
       
       return response.render('register', {message: {field: error.path, errors: error.errors}})
     }
@@ -27,7 +26,7 @@ class UserController {
 
     const userResponse = await userService.save(userDto);
 
-    if(!userResponse) return response.render('register', {message: {errors: []}})
+    if(!userResponse) return response.render('register', {message: {messages: ["Não conseguimos fazer o seu cadastro. Tente novamente mais tarde!"]}})
 
     return response.redirect('/login');
   }

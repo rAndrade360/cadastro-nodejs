@@ -4,11 +4,24 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro</title>
+  <%- include('header'); %>
+  <title>Home | Dev Recuiter</title>
 </head>
 <body>
-  <h1>Hello World</h1>
-  <a href="/login">Fazer Login</a>
-  <a href="/register">Registrar-se</a>
+  <div class="container w-100 p-3 d-flex justify-content-center flex-column align-items-center">
+    <div class="row">
+      <div class="">
+        <h1>Dev Recruiter</h1>
+      </div>
+    </div>
+    <div class="row">
+      <p class="discription">Recrute Desenvolvedores para lhe ajudar com os seus mais diversos projetos!</p>
+    </div>
+  <div class="buttons">
+    <a class="btn btn-info" href="/login">Fazer Login</a>
+    <a class="btn btn-light" href="/register">Registrar-se</a>
+  </div>
+</div>
+  <%- include('footer'); %>
 </body>
 </html>
