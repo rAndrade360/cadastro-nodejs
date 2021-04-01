@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import path from 'path';
 import session from 'express-session';
@@ -20,7 +21,7 @@ class App {
     this.app.use(helmet());
     auth(passport);
     this.app.use(session({
-      secret: 'sd3$23fsdf3daSdFSDGW4s@fsd',
+      secret: String(process.env.SESSION_SECRET),
       resave: false,
       saveUninitialized: false,
       cookie: { maxAge: 30 * 60 * 1000 }//30min

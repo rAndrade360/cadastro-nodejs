@@ -35,7 +35,7 @@ routes.get('/home',  authenticationMiddleware, (request: Request, response: Resp
 
 routes.get('/logout', authenticationMiddleware, (request: Request, response: Response) => {
   request.session.destroy(function (err) {
-    console.log(err)
+    //console.log(err)
   })
   return response.redirect('/login')
 })

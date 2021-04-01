@@ -11,8 +11,6 @@ class UserRepository implements IUserRepository {
 
     const userInsert = JSON.parse(JSON.stringify(user));
 
-    console.log(userInsert)
-
     users.insert(userInsert);
     
     return user;

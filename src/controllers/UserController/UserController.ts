@@ -26,7 +26,7 @@ class UserController {
 
     const userResponse = await userService.save(userDto);
 
-    if(!userResponse) return response.render('register', {message: {messages: ["Não conseguimos fazer o seu cadastro. Tente novamente mais tarde!"]}})
+    if(!userResponse) return response.render('register', {message: null})
 
     return response.redirect('/login');
   }
